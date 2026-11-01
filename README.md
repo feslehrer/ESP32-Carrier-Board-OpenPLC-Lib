@@ -1,5 +1,6 @@
 # ESP32-Carrier-Board-OpenPLC-Lib
 Stellt Hardwarefunktionen des ESP32-Carrier-Board für OpenPLC zur Verfügung
+<img width="1000" alt="image" src="https://github.com/user-attachments/assets/e68f583a-90fb-4ac1-a81e-7e65dbf33006" /><br>
 ## Download
 Kopieren Sie die Datei [ESP32-Carrier-Board-Lib.stlib](https://github.com/feslehrer/ESP32-Carrier-Board-OpenPLC-Lib/blob/main/build/) in das OpenPLC-Arbeitsverzeichnis auf ihren Rechner.
 Anschließend kann die Bibliothek im eigenen OpenPLC-Projekt hinzugefügt werden.
@@ -15,7 +16,9 @@ Auf die Bibliotheksfunktionen kann anschließend über Library zugegriffen werde
 <img width="250" alt="image" src="https://github.com/user-attachments/assets/a2a7ca7c-17b5-4a58-806a-ce3b520e77c5" />
 ## Bibliotheksfunktionen
 ### 1. ESP32_DAC
-Gibt eine Analoge Spannung an den Analogausgängen des ESP32 aus (Pin 25 und 26). Duch die Spannungsanpassung auf dem Carrierboard, können an den Analogausgängen 0..5V abgegriffen werden. Die Analogausgänge (DAC1 und DAC2) haben eine 8 Bit-Auflösung. <br><img width="350" alt="image" src="https://github.com/user-attachments/assets/c426f678-f6cd-4aee-b622-0b8b29655e2c" /><br>
+Gibt eine Analoge Spannung an den Analogausgängen des ESP32 aus (Pin 25 und 26). Duch die Spannungsanpassung auf dem Carrierboard, kann an den beiden 2mm-Laborbuchsen die Spannung 0..5V abgegriffen werden.<br>
+<img width="100" alt="image" src="https://github.com/user-attachments/assets/875acfcb-0356-4cab-be02-52ed19b26cfa" /><br>
+Die Analogausgänge (DAC1 und DAC2) haben eine 8 Bit-Auflösung. <br><img width="350" alt="image" src="https://github.com/user-attachments/assets/c426f678-f6cd-4aee-b622-0b8b29655e2c" /><br>
 IN1: USINT<br>
 IN2: USINT<br>
 Eventuell muss eine Typanpassung <img width="100" alt="image" src="https://github.com/user-attachments/assets/9cb1df54-b108-49f0-a000-d0bf355178bb" />
@@ -26,7 +29,8 @@ OpenPLC bietet eine Reihe von String-Funktionen zur Bearbeitung des Anzeige-Text
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/dd611d35-dd6e-48d6-97fe-256119272673" /><br>
 TEXTZEILE1: STRING<br>
 TEXTZEILE2: STRING<br>
-<img width="1000" alt="image" src="https://github.com/user-attachments/assets/e68f583a-90fb-4ac1-a81e-7e65dbf33006" /><br>
+<img width="450" alt="image" src="https://github.com/user-attachments/assets/8e41c839-4e32-4445-be11-3808dfd9755e" />
+<br>
 ### 3. ESP_LM75
 Dieser FB gibt die Temperatur des auf dem Carrier-Board verbauten Temperatursensors LM75 zurück. Der Messbereich des LM75 ist -55°C...+125°C mit einer Auflösung von 0,5°C.<br> 
 Der Ausgang **STEMPERATURE** gibt einen Formatierten String mit einer Nachkommastelle aus.<br>

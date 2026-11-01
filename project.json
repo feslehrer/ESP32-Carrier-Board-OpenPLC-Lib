@@ -1,6 +1,6 @@
 {
   "meta": {
-    "name": "ESP32-Carrier-Board-Lib",
+    "name": "ESP32-Carrier-Board-OpenPLC-Lib",
     "type": "plc-library"
   },
   "data": {

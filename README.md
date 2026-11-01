@@ -17,7 +17,7 @@ Auf die Bibliotheksfunktionen kann anschließend über Library zugegriffen werde
 ## Bibliotheksfunktionen
 ### 1. ESP32_DAC
 Gibt eine Analoge Spannung an den Analogausgängen des ESP32 aus (Pin 25 und 26). Duch die Spannungsanpassung auf dem Carrierboard, kann an den beiden 2mm-Laborbuchsen die Spannung 0..5V abgegriffen werden.<br>
-<img width="100" alt="image" src="https://github.com/user-attachments/assets/875acfcb-0356-4cab-be02-52ed19b26cfa" /><br>
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/875acfcb-0356-4cab-be02-52ed19b26cfa" /><br>
 Die Analogausgänge (DAC1 und DAC2) haben eine 8 Bit-Auflösung. <br><img width="350" alt="image" src="https://github.com/user-attachments/assets/c426f678-f6cd-4aee-b622-0b8b29655e2c" /><br>
 IN1: USINT<br>
 IN2: USINT<br>
@@ -34,8 +34,9 @@ TEXTZEILE2: STRING<br>
 ### 3. ESP_LM75
 Dieser FB gibt die Temperatur des auf dem Carrier-Board verbauten Temperatursensors LM75 zurück. Der Messbereich des LM75 ist -55°C...+125°C mit einer Auflösung von 0,5°C.<br> 
 Der Ausgang **STEMPERATURE** gibt einen Formatierten String mit einer Nachkommastelle aus.<br>
-FTEMPERATURE: REAL<br>
-STEMPERATURE: STRING<br>
+<img width="150" alt="image" src="https://github.com/user-attachments/assets/f3a2958a-f841-4538-bb49-2232b2f3fff3" /><br>
+fTemperature: REAL<br>
+sTemperature: STRING<br>
 ### 4. ESP32_PWM
 Diese FB gibt eine 12-Bit PWM am angegebenen Pin des ESP32 (PINNR). Es ist darauf zu achten, dass der Pin nicht durch andere Funktionen belegt ist. Die PWM-Frequenz ist fest auf 1000 Hz eingestellt.<br>
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/ee9d0d72-fe70-4dd5-b75f-556d61aac507" /><br>

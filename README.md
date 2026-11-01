@@ -34,7 +34,7 @@ TextZeile2: STRING<br>
 ### 3. ESP_LM75
 Dieser FB gibt die Temperatur des auf dem Carrier-Board verbauten Temperatursensors LM75 zurück. Der Messbereich des LM75 ist -55°C...+125°C mit einer Auflösung von 0,5°C.<br> 
 Der Ausgang **STEMPERATURE** gibt einen Formatierten String mit einer Nachkommastelle aus.<br>
-<img width="150" alt="image" src="https://github.com/user-attachments/assets/f3a2958a-f841-4538-bb49-2232b2f3fff3" /><br>
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/f3a2958a-f841-4538-bb49-2232b2f3fff3" /><br>
 fTemperature: REAL<br>
 sTemperature: STRING<br>
 ### 4. ESP32_PWM

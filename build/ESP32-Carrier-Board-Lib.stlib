@@ -1,0 +1,268 @@
+{
+  "formatVersion": 1,
+  "manifest": {
+    "name": "ESP32-Carrier-Board-Lib",
+    "version": "0.1.3",
+    "namespace": "esp32_carrier_board_lib",
+    "functions": [],
+    "functionBlocks": [
+      {
+        "name": "ESP32_TASTER_SCHALTER",
+        "inputs": [
+          {
+            "name": "IN1",
+            "type": "BOOL"
+          },
+          {
+            "name": "PB_SW",
+            "type": "BOOL"
+          },
+          {
+            "name": "NO_NC",
+            "type": "BOOL"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "OUT",
+            "type": "BOOL"
+          }
+        ],
+        "inouts": [],
+        "locals": [
+          {
+            "name": "R_TRIG0",
+            "type": "R_TRIG"
+          },
+          {
+            "name": "_TMP_NOT9185098_OUT",
+            "type": "BOOL"
+          },
+          {
+            "name": "_TMP_NOT3736476_OUT",
+            "type": "BOOL"
+          },
+          {
+            "name": "_TMP_AND2797410_OUT",
+            "type": "BOOL"
+          },
+          {
+            "name": "_TMP_AND3481250_OUT",
+            "type": "BOOL"
+          },
+          {
+            "name": "_TMP_OR6374086_OUT",
+            "type": "BOOL"
+          },
+          {
+            "name": "_TMP_AND2110482_OUT",
+            "type": "BOOL"
+          },
+          {
+            "name": "_TMP_XOR5882055_OUT",
+            "type": "BOOL"
+          },
+          {
+            "name": "_TMP_NOT1687859_OUT",
+            "type": "BOOL"
+          },
+          {
+            "name": "_TMP_AND2932436_OUT",
+            "type": "BOOL"
+          },
+          {
+            "name": "_TMP_OR5624662_OUT",
+            "type": "BOOL"
+          }
+        ],
+        "documentation": "PB_SW: 0=Taster, 1=Schalter;   NO_NC: 0=Schließer, 1=Öffner"
+      },
+      {
+        "name": "ESP32_DAC",
+        "inputs": [
+          {
+            "name": "IN1",
+            "type": "USINT"
+          },
+          {
+            "name": "IN2",
+            "type": "USINT"
+          }
+        ],
+        "outputs": [],
+        "inouts": [],
+        "implementation": "cpp",
+        "sourceFile": "ESP32_DAC.cpp",
+        "documentation": "Gibt eine Analoge Spannung (0...3,3V, bzw. 0...5V am CarrierBoard) an den Analogausgängen des ESP32 aus (Pin 25 und 26)"
+      },
+      {
+        "name": "ESP32_DISPLAY",
+        "inputs": [
+          {
+            "name": "TEXTZEILE1",
+            "type": "STRING"
+          },
+          {
+            "name": "TEXTZEILE2",
+            "type": "STRING"
+          }
+        ],
+        "outputs": [],
+        "inouts": [],
+        "implementation": "cpp",
+        "sourceFile": "ESP32_Display.cpp",
+        "documentation": "Gibt die Strings TextZeile1 auf Zeile 1 und TextZeile2 auf Zeile 2 des I2C-Displays aus. In der Arduino IDE muss die Bibliothek: LiquidCrystal_I2C von Frank de Brabander installiert sein."
+      },
+      {
+        "name": "ESP32_LM75",
+        "inputs": [],
+        "outputs": [
+          {
+            "name": "FTEMPERATURE",
+            "type": "REAL"
+          },
+          {
+            "name": "STEMPERATURE",
+            "type": "STRING"
+          }
+        ],
+        "inouts": [],
+        "implementation": "cpp",
+        "sourceFile": "ESP32_LM75.cpp",
+        "documentation": "Liest den Temperaturwert vom LM75 auf dem ESP32-Carrier-Board. fTemperature: Temperatur mit Auflösung 0.5°C als REAL (float). sTemperature: Ausgabe als String mit einer fixen Nachkommastelle."
+      },
+      {
+        "name": "ESP32_PWM",
+        "inputs": [
+          {
+            "name": "PINNR",
+            "type": "UINT"
+          },
+          {
+            "name": "IDUTYCYCLE",
+            "type": "UINT"
+          }
+        ],
+        "outputs": [],
+        "inouts": [],
+        "implementation": "cpp",
+        "sourceFile": "ESP32_PWM.cpp",
+        "documentation": "Gibt eine PWM mit f = 1 kHz am PWM-Pin aus. PinNr: PWM-Pin (ESP32); iDutycycle:  0 ... 65535 (g: 0 ... 100%)"
+      },
+      {
+        "name": "ESP32_TONE",
+        "inputs": [
+          {
+            "name": "IOKTAVE",
+            "type": "INT"
+          },
+          {
+            "name": "INOTE",
+            "type": "INT"
+          },
+          {
+            "name": "XNOTEON",
+            "type": "BOOL"
+          }
+        ],
+        "outputs": [],
+        "inouts": [],
+        "implementation": "cpp",
+        "sourceFile": "ESP32_Tone.cpp",
+        "documentation": "Gibt einen Ton am  Speaker (Pin 27) des ESP32-Carrier-Board aus. iOktave:  0 ... 9 ; iNote: NOTE_C...NOTE_B (0...11); xNoteON: 1=Ton an, 0=Ton aus"
+      }
+    ],
+    "types": [],
+    "globals": [],
+    "headers": [],
+    "isBuiltin": false,
+    "sourceFiles": [
+      "ESP32_Taster_Schalter.st",
+      "ESP32_DAC.cpp",
+      "ESP32_Display.cpp",
+      "ESP32_LM75.cpp",
+      "ESP32_PWM.cpp",
+      "ESP32_Tone.cpp"
+    ],
+    "description": "Bietet speziellen Zugriff auf die ESP32-Carrier-Board Hardware.",
+    "displayName": "ESP32-Carrier-Board-Lib"
+  },
+  "chunks": [
+    {
+      "name": "ESP32_TASTER_SCHALTER",
+      "kind": "functionBlock",
+      "header": "class ESP32_TASTER_SCHALTER {\npublic:\n    // Local variables\n    R_TRIG R_TRIG0;\n    // Inputs\n    IEC_BOOL IN1;\n    IEC_BOOL PB_SW;\n    IEC_BOOL NO_NC;\n    // Outputs\n    IEC_BOOL OUT;\n    // Local variables\n    IEC_BOOL _TMP_NOT9185098_OUT;\n    IEC_BOOL _TMP_NOT3736476_OUT;\n    IEC_BOOL _TMP_AND2797410_OUT;\n    IEC_BOOL _TMP_AND3481250_OUT;\n    IEC_BOOL _TMP_OR6374086_OUT;\n    IEC_BOOL _TMP_AND2110482_OUT;\n    IEC_BOOL _TMP_XOR5882055_OUT;\n    IEC_BOOL _TMP_NOT1687859_OUT;\n    IEC_BOOL _TMP_AND2932436_OUT;\n    IEC_BOOL _TMP_OR5624662_OUT;\n\n    // Implicit IEC 61131-3 ENO pin (mirrors EN)\n    IEC_BOOL ENO = true;\n\n    // Constructor\n    ESP32_TASTER_SCHALTER();\n\n    // Execute function block\n    void operator()();\n\n    virtual ~ESP32_TASTER_SCHALTER() = default;\n};\n",
+      "cpp": "ESP32_TASTER_SCHALTER::ESP32_TASTER_SCHALTER()\n    : PB_SW(0), NO_NC(0)\n{\n    // Initialize variables\n}\n\nvoid ESP32_TASTER_SCHALTER::operator()() {\n    _TMP_NOT9185098_OUT = NOT(IN1);\n    _TMP_NOT3736476_OUT = NOT(NO_NC);\n    _TMP_AND2797410_OUT = AND(_TMP_NOT9185098_OUT, _TMP_NOT3736476_OUT);\n    _TMP_AND3481250_OUT = AND(IN1, NO_NC);\n    _TMP_OR6374086_OUT = OR(_TMP_AND2797410_OUT, _TMP_AND3481250_OUT);\n    _TMP_AND2110482_OUT = AND(_TMP_OR6374086_OUT, PB_SW);\n    R_TRIG0.CLK = _TMP_AND2110482_OUT;\n    R_TRIG0();\n    R_TRIG0.ENO = true;\n    _TMP_XOR5882055_OUT = XOR(R_TRIG0.Q, _TMP_XOR5882055_OUT);\n    _TMP_NOT1687859_OUT = NOT(PB_SW);\n    _TMP_AND2932436_OUT = AND(_TMP_OR6374086_OUT, _TMP_NOT1687859_OUT);\n    _TMP_OR5624662_OUT = OR(_TMP_XOR5882055_OUT, _TMP_AND2932436_OUT);\n    OUT = _TMP_OR5624662_OUT;\n}\n",
+      "deps": [
+        {
+          "library": "iec-standard-fb",
+          "name": "R_TRIG"
+        },
+        {
+          "library": "iec-std-functions",
+          "name": "AND"
+        },
+        {
+          "library": "iec-std-functions",
+          "name": "NOT"
+        },
+        {
+          "library": "iec-std-functions",
+          "name": "OR"
+        },
+        {
+          "library": "iec-std-functions",
+          "name": "XOR"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "name": "additional-function-blocks",
+      "version": "1.0.0"
+    },
+    {
+      "name": "iec-standard-fb",
+      "version": "1.0.0"
+    },
+    {
+      "name": "iec-std-functions",
+      "version": "1.0.0"
+    },
+    {
+      "name": "oscat-basic",
+      "version": "335.0.0"
+    },
+    {
+      "name": "plcopen-softmotion",
+      "version": "0.1.0"
+    }
+  ],
+  "sources": [
+    {
+      "fileName": "ESP32_Taster_Schalter.st",
+      "source": "FUNCTION_BLOCK ESP32_Taster_Schalter\n  VAR\n    R_TRIG0 : R_TRIG;\n  END_VAR\n  VAR_INPUT\n    IN1 : BOOL;\n    PB_SW : BOOL := 0;\n    NO_NC : BOOL := 0;\n  END_VAR\n  VAR_OUTPUT\n    OUT : BOOL;\n  END_VAR\n  VAR\n    _TMP_NOT9185098_OUT : BOOL;\n    _TMP_NOT3736476_OUT : BOOL;\n    _TMP_AND2797410_OUT : BOOL;\n    _TMP_AND3481250_OUT : BOOL;\n    _TMP_OR6374086_OUT : BOOL;\n    _TMP_AND2110482_OUT : BOOL;\n    _TMP_XOR5882055_OUT : BOOL;\n    _TMP_NOT1687859_OUT : BOOL;\n    _TMP_AND2932436_OUT : BOOL;\n    _TMP_OR5624662_OUT : BOOL;\n  END_VAR\n\n  _TMP_NOT9185098_OUT := NOT(IN1);\n  _TMP_NOT3736476_OUT := NOT(NO_NC);\n  _TMP_AND2797410_OUT := AND(_TMP_NOT9185098_OUT, _TMP_NOT3736476_OUT);\n  _TMP_AND3481250_OUT := AND(IN1, NO_NC);\n  _TMP_OR6374086_OUT := OR(_TMP_AND2797410_OUT, _TMP_AND3481250_OUT);\n  _TMP_AND2110482_OUT := AND(_TMP_OR6374086_OUT, PB_SW);\n  R_TRIG0(CLK := _TMP_AND2110482_OUT);\n  _TMP_XOR5882055_OUT := XOR(R_TRIG0.Q, _TMP_XOR5882055_OUT);\n  _TMP_NOT1687859_OUT := NOT(PB_SW);\n  _TMP_AND2932436_OUT := AND(_TMP_OR6374086_OUT, _TMP_NOT1687859_OUT);\n  _TMP_OR5624662_OUT := OR(_TMP_XOR5882055_OUT, _TMP_AND2932436_OUT);\n  OUT := _TMP_OR5624662_OUT;\nEND_FUNCTION_BLOCK\n"
+    },
+    {
+      "fileName": "ESP32_DAC.cpp",
+      "source": "(* Gibt eine Analoge Spannung (0...3,3V, bzw. 0...5V am CarrierBoard) an den Analogausgängen des ESP32 aus (Pin 25 und 26) *)\n\nFUNCTION_BLOCK ESP32_DAC\n  VAR_INPUT\n    IN1 : USINT := 0; (* 8-Bit Analogwert (0...255) *)\n    IN2 : USINT := 0; (* 8-Bit Analogwert (0...255) *)\n  END_VAR\n  VAR_OUTPUT\n  END_VAR\n/* ================================================================\n *  C/C++ FUNCTION BLOCK\n *\n *  ---------------------------------------------------------------\n *  - This function block runs **in sync** with the PLC runtime.\n *  - The `setup()` function is called once when the block initializes.\n *  - The `loop()` function is called at every PLC scan cycle.\n *  - Block input and output variables declared in the variable table\n *    can be accessed directly by name in this C/C++ code.\n *\n *  This block executes as part of the main PLC process and follows\n *  the configured scan time in the Resources. Use it for real-time\n *  control logic, fast I/O operations, or any C-based algorithms.\n * ================================================================ */\n\n#include <stdio.h>\n#include <stdint.h>\n#include <stdbool.h>\n\n#define DAC1 25\n#define DAC2 26\n\nvoid setup()\n{\n  #ifdef ARDUINO\n    pinMode(DAC1, ANALOG);\n    pinMode(DAC2, ANALOG);\n\n  #endif\n}\n\nvoid loop()\n{\n  #ifdef ARDUINO\n    // IN1 / IN2 sind UINT (0–65535), dacWrite erwartet 0–255\n    // Skalierung: (wert * 255) / 65535 → vereinfacht: wert / 257\n    uint8_t dac1_val = (uint8_t)(IN1);\n    uint8_t dac2_val = (uint8_t)(IN2);\n\n    dacWrite(DAC1, dac1_val);\n    dacWrite(DAC2, dac2_val);\n  #endif\n}\n\nEND_FUNCTION_BLOCK"
+    },
+    {
+      "fileName": "ESP32_Display.cpp",
+      "source": "(* Gibt die Strings TextZeile1 auf Zeile 1 und TextZeile2 auf Zeile 2 des I2C-Displays aus. In der Arduino IDE muss die Bibliothek: LiquidCrystal_I2C von Frank de Brabander installiert sein. *)\n\nFUNCTION_BLOCK ESP32_Display\n  VAR\n  END_VAR\n  VAR_INPUT\n    TextZeile1 : STRING;\n    TextZeile2 : STRING;\n  END_VAR\n/* ================================================================\n *  C/C++ FUNCTION BLOCK\n *\n *  ---------------------------------------------------------------\n *  - This function block runs **in sync** with the PLC runtime.\n *  - The `setup()` function is called once when the block initializes.\n *  - The `loop()` function is called at every PLC scan cycle.\n *  - Block input and output variables declared in the variable table\n *    can be accessed directly by name in this C/C++ code.\n *\n *  This block executes as part of the main PLC process and follows\n *  the configured scan time in the Resources. Use it for real-time\n *  control logic, fast I/O operations, or any C-based algorithms.\n * ================================================================ */\n\n#include <Arduino.h>\n#include <stdio.h>\n#include <stdint.h>\n#include <stdbool.h>\n\n#include <Wire.h>               // Wire Bibliothek für I2C-Display\n#include <LiquidCrystal_I2C.h>\n\n// I2C-Display: adresse 0x27, 2 Zeilen á 16 Zeichen\nLiquidCrystal_I2C lcd(0x27, 16, 2);\n\n// Konvertiert UTF-8 Strings (OpenPLC) in den Zeichensatz des Standard-Textdisplays\nString convertToLCDCharset(const String& input) \n{\n    String output = \"\";\n    output.reserve(input.length()); // Speicher vorab reservieren\n\n    for (size_t i = 0; i < input.length(); i++) \n    {\n        unsigned char c = input[i];\n\n        // UTF-8 Sonderzeichen beginnen meist mit dem Startbyte 0xC3 oder 0xC2\n        if (c == 0xC3 && i + 1 < input.length()) {\n            unsigned char next = input[i + 1];\n            i++; // Das Folgebyte direkt überspringen, da wir es jetzt verarbeiten\n\n            switch (next) {\n                case 0x9F: output += (char)0xE2; break; // ß\n                case 0xA4:\n                case 0x84: output += (char)0xE1; break; // ä\n                case 0xB6: \n                case 0x96: output += (char)0xEF; break; // ö\n                case 0xBC: \n                case 0x9C: output += (char)0xF5; break; // ü\n                \n                default: \n                    // Falls ein anderes 0xC3-Zeichen kommt, unverändert lassen\n                    output += (char)c; \n                    output += (char)next; \n                    break;\n            }\n        } \n        else if (c == 0xC2 && i + 1 < input.length()) {\n            unsigned char next = input[i + 1];\n            if (next == 0xB0) { // UTF-8 für '°'\n                output += (char)0xDF; // HD44780 spezifisches '°'\n                i++;\n            } else {\n                output += (char)c;\n            }\n        }\n        else {\n            // Standard-ASCII-Zeichen einfach eins zu eins übernehmen\n            output += (char)c;\n        }\n    }\n    return output;\n}\n\n\n\n\nvoid setup()\n{\n  Wire.begin(21,22);\n  lcd.init();\n  lcd.clear();\n}\n\nvoid loop() \n{\n  lcd.setCursor(0,0);\n  String displayReadyString1 = convertToLCDCharset(TextZeile1.c_str());\n  lcd.print(displayReadyString1);\n\n  lcd.setCursor(0,1);\n  String displayReadyString2 = convertToLCDCharset(TextZeile2.c_str());\n  lcd.print(displayReadyString2.c_str());\n}\n\nEND_FUNCTION_BLOCK"
+    },
+    {
+      "fileName": "ESP32_LM75.cpp",
+      "source": "(* Liest den Temperaturwert vom LM75 auf dem ESP32-Carrier-Board. fTemperature: Temperatur mit Auflösung 0.5°C als REAL (float). sTemperature: Ausgabe als String mit einer fixen Nachkommastelle. *)\n\nFUNCTION_BLOCK ESP32_LM75\n  VAR_INPUT\n  END_VAR\n  VAR_OUTPUT\n    fTemperature : REAL := 0; (* Temperatur: -50.0 ... 150.0 °C *)\n    sTemperature : STRING := '0'; (* Temperatur als String mit einer Nachkommastelle. *)\n  END_VAR\n/* ================================================================\n *  C/C++ FUNCTION BLOCK\n *\n *  ---------------------------------------------------------------\n *  - This function block runs **in sync** with the PLC runtime.\n *  - The `setup()` function is called once when the block initializes.\n *  - The `loop()` function is called at every PLC scan cycle.\n *  - Block input and output variables declared in the variable table\n *    can be accessed directly by name in this C/C++ code.\n *\n *  This block executes as part of the main PLC process and follows\n *  the configured scan time in the Resources. Use it for real-time\n *  control logic, fast I/O operations, or any C-based algorithms.\n * ================================================================ */\n\n#include <stdio.h>\n#include <stdint.h>\n#include <stdbool.h>\n\n#include <Wire.h>\n\n#define SensorAdresse 0x48  // I2C-Adresse fuer LM75\n\nfloat lm75_read(int adress); // Prototyp\n\nvoid setup() \n{\n  Wire.begin();   \n}\n\nvoid loop() \n{ //char buffer[16];\n  //fTemperature = lm75_read(SensorAdresse);\n  int16_t raw_temp = 0;\n\n  Wire.beginTransmission(SensorAdresse);\n  Wire.write(0);                            // Pointer auf Temperatur-Register setzen\n  Wire.endTransmission();\n\n  Wire.requestFrom(SensorAdresse, 2);\n  if (Wire.available() >= 2)\n  {\n    byte msb = Wire.read();\n    byte lsb = Wire.read();\n\n    raw_temp = (msb << 8) | lsb;\n    raw_temp = raw_temp >> 7; \n  }\n  //return (float)raw_temp * 0.5;\n  fTemperature = (float)raw_temp * 0.5;\n\n  //snprintf(buffer, sizeof(buffer), \"%.1f\", fTemperature);\n  String tempStr = String(fTemperature, 1); \n  sTemperature.set(tempStr.c_str());\n}\n\nEND_FUNCTION_BLOCK"
+    },
+    {
+      "fileName": "ESP32_PWM.cpp",
+      "source": "(* Gibt eine PWM mit f = 1 kHz am PWM-Pin aus. PinNr: PWM-Pin (ESP32); iDutycycle:  0 ... 65535 (g: 0 ... 100%) *)\n\nFUNCTION_BLOCK ESP32_PWM\n  VAR_INPUT\n    PinNr : UINT := 2; (* default: PinNr = 2 (Backlight) *)\n    iDutycycle : UINT;\n  END_VAR\n  VAR_EXTERNAL\n  END_VAR\n/* ================================================================\n *  C/C++ FUNCTION BLOCK\n *\n *  ---------------------------------------------------------------\n *  - This function block runs **in sync** with the PLC runtime.\n *  - The `setup()` function is called once when the block initializes.\n *  - The `loop()` function is called at every PLC scan cycle.\n *  - Block input and output variables declared in the variable table\n *    can be accessed directly by name in this C/C++ code.\n *\n *  This block executes as part of the main PLC process and follows\n *  the configured scan time in the Resources. Use it for real-time\n *  control logic, fast I/O operations, or any C-based algorithms.\n * ================================================================ */\n\n#include <stdio.h>\n#include <stdint.h>\n#include <stdbool.h>\n\n\nconst int PWM_FREQU = 1'000;\nconst int PWM_RES = 12;\nconst int MAX_DUTY_CYCLE = (int)(pow(2, PWM_RES) - 1); \n\nvoid setup()\n{\n  ledcAttach(PinNr,PWM_FREQU,PWM_RES);\n}\n\nvoid loop()\n{ \n  int dimmer = map(iDutycycle,0,65535,0,MAX_DUTY_CYCLE);\n  ledcWrite(PinNr, dimmer);        // (GPIO, duty_cycle)\n}\n\nEND_FUNCTION_BLOCK"
+    },
+    {
+      "fileName": "ESP32_Tone.cpp",
+      "source": "(* Gibt einen Ton am  Speaker (Pin 27) des ESP32-Carrier-Board aus. iOktave:  0 ... 9 ; iNote: NOTE_C...NOTE_B (0...11); xNoteON: 1=Ton an, 0=Ton aus *)\n\nFUNCTION_BLOCK ESP32_Tone\n  VAR_EXTERNAL\n  END_VAR\n  VAR_INPUT\n    iOktave : INT := 4;\n    iNote : INT := 9;\n    xNoteOn : BOOL := 0;\n  END_VAR\n  VAR\n  END_VAR\n  VAR_TEMP\n  END_VAR\n/* ================================================================\n *  C/C++ FUNCTION BLOCK\n *\n *  ---------------------------------------------------------------\n *  - This function block runs **in sync** with the PLC runtime.\n *  - The `setup()` function is called once when the block initializes.\n *  - The `loop()` function is called at every PLC scan cycle.\n *  - Block input and output variables declared in the variable table\n *    can be accessed directly by name in this C/C++ code.\n *\n *  This block executes as part of the main PLC process and follows\n *  the configured scan time in the Resources. Use it for real-time\n *  control logic, fast I/O operations, or any C-based algorithms.\n * ================================================================ */\n\n#include <stdio.h>\n#include <stdint.h>\n#include <stdbool.h>\n#include <Arduino.h>\n\n\n#define SPEAKER 27\n\n#define NOTE_C  0\n#define NOTE_Cs 1\n#define NOTE_D  2\n#define NOTE_Eb 3\n#define NOTE_E  4\n#define NOTE_F  5\n#define NOTE_Fs 6\n#define NOTE_G  7\n#define NOTE_Gs 8\n#define NOTE_A  9\n#define NOTE_Bb 10\n#define NOTE_B  11\n\nvoid setup()\n{\n  pinMode(SPEAKER,OUTPUT);\n  ledcAttach(SPEAKER,440,10);           //GPIO 27\n}\n\nvoid loop()\n{\n    if (xNoteOn)\n    {\n        int noteValue = (int)iNote.get();\n        if (noteValue<0 || noteValue>11)\n            noteValue = 9;\n        ledcWriteNote(SPEAKER,(note_t)noteValue,iOktave);  // (GPIO, Note, Oktave)\n        \n        //ledcWriteNote(SPEAKER,NOTE_A,iOktave);  // (GPIO, Note, Oktave)\n    }\n    else\n        ledcWrite(SPEAKER,0);\n}\n\nEND_FUNCTION_BLOCK"
+    }
+  ]
+}

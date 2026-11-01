@@ -19,16 +19,16 @@ Auf die Bibliotheksfunktionen kann anschließend über Library zugegriffen werde
 Gibt eine Analoge Spannung an den Analogausgängen des ESP32 aus (Pin 25 und 26). Duch die Spannungsanpassung auf dem Carrierboard, kann an den beiden 2mm-Laborbuchsen die Spannung 0..5V abgegriffen werden.<br>
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/875acfcb-0356-4cab-be02-52ed19b26cfa" /><br>
 Die Analogausgänge (DAC1 und DAC2) haben eine 8 Bit-Auflösung. <br><img width="350" alt="image" src="https://github.com/user-attachments/assets/c426f678-f6cd-4aee-b622-0b8b29655e2c" /><br>
-IN1: USINT<br>
-IN2: USINT<br>
+In1: USINT<br>
+In2: USINT<br>
 Eventuell muss eine Typanpassung <img width="100" alt="image" src="https://github.com/user-attachments/assets/9cb1df54-b108-49f0-a000-d0bf355178bb" />
 stattfinden.<br>
 ### 2. ESP32_Display
 Mit diesem Funktions-Block(FB) können die beiden Textzeilen des LC-Displays auf dem Carrierboard beschrieben werden. Dabei kann konstanter Text (immer in Hochkamma 'Hallo Welt') oder Variabler Text angezeigt werden.<br>**Wichtig:** In der lokalen Arduino IDE muss die LiquidCrystal_I2C-Bibliothek von Frank de Brabander installiert sein.<br>
 OpenPLC bietet eine Reihe von String-Funktionen zur Bearbeitung des Anzeige-Textes:
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/dd611d35-dd6e-48d6-97fe-256119272673" /><br>
-TEXTZEILE1: STRING<br>
-TEXTZEILE2: STRING<br>
+TextZeile1: STRING<br>
+TextZeile2: STRING<br>
 <img width="450" alt="image" src="https://github.com/user-attachments/assets/8e41c839-4e32-4445-be11-3808dfd9755e" />
 <br>
 ### 3. ESP_LM75
@@ -40,8 +40,8 @@ sTemperature: STRING<br>
 ### 4. ESP32_PWM
 Diese FB gibt eine 12-Bit PWM am angegebenen Pin des ESP32 (PINNR). Es ist darauf zu achten, dass der Pin nicht durch andere Funktionen belegt ist. Die PWM-Frequenz ist fest auf 1000 Hz eingestellt.<br>
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/ee9d0d72-fe70-4dd5-b75f-556d61aac507" /><br>
-PINNR: UINT (2=Backlight, 27=Speaker)<br>
-IDUTYCYCLE: UINT (0...65535)<br>
+PinNr: UINT (2=Backlight, 27=Speaker)<br>
+iDutycycle: UINT (0...65535)<br>
 ### 5. ESP32_TASTER_SCHALTER
 Mit diesem FB können die 4 nullaktiven Taster auf dem Carrier-Board als Schließer (NO) oder Öffner (NC) konfiguriert werden. Ebenso kann damit eine Schalterfunktion realisiert werden. 
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/00ad17c9-65ac-4870-aeab-cc3ee62e5553" /><br>

@@ -1,6 +1,8 @@
 # ESP32-Carrier-Board-OpenPLC-Lib
 Stellt Hardwarefunktionen des ESP32-Carrier-Board für OpenPLC zur Verfügung
 <img width="1000" alt="image" src="https://github.com/user-attachments/assets/e68f583a-90fb-4ac1-a81e-7e65dbf33006" /><br>
+[ESP32-Carrierboard](https://ase-schlierbach.de/produkt/esp32-carrier-board-v1-5/)<br>
+[ESP32-PicoKit 4.1](https://ase-schlierbach.de/produkt/esp32-pico-kit-1/)
 ## Download
 Kopieren Sie die Datei [ESP32-Carrier-Board-Lib.stlib](https://github.com/feslehrer/ESP32-Carrier-Board-OpenPLC-Lib/blob/main/build/) in das OpenPLC-Arbeitsverzeichnis auf ihren Rechner.
 Anschließend kann die Bibliothek im eigenen OpenPLC-Projekt hinzugefügt werden.

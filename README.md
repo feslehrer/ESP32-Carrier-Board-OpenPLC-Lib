@@ -29,7 +29,7 @@ stattfinden.<br>
 ### 2. ESP32_Display
 Mit diesem Funktions-Block(FB) können die beiden Textzeilen des LC-Displays auf dem Carrierboard beschrieben werden. Dabei kann konstanter Text (immer in Hochkamma 'Hallo Welt') oder Variabler Text angezeigt werden.<br>**Wichtig:** In der lokalen Arduino IDE muss die LiquidCrystal_I2C-Bibliothek von Frank de Brabander installiert sein.<br>
 OpenPLC bietet eine Reihe von String-Funktionen zur Bearbeitung des Anzeige-Textes:
-<img width="800" alt="image" src="https://github.com/user-attachments/assets/dd611d35-dd6e-48d6-97fe-256119272673" /><br>
+<img width="700" alt="image" src="https://github.com/user-attachments/assets/d0af580a-bbe5-4a24-9220-543720401946" /><br>
 TextZeile1: STRING<br>
 TextZeile2: STRING<br>
 <img width="450" alt="image" src="https://github.com/user-attachments/assets/8e41c839-4e32-4445-be11-3808dfd9755e" />

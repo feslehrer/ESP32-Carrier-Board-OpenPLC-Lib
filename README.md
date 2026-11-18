@@ -53,8 +53,10 @@ PB_SW: BOOL (0:Taster (Pushbutton=default), 1:Schalter (Switch))<br>
 NO_NC: BOOL (0:Schließer (NO=default), 2:Öffner (NC)) <br>
 ### 6. ESP32_TONE
 Mit diesem FB wird ein Ton auf dem Lautsprecher (Speaker = Pin 27) des Carrier-Boards ausgegeben. Die Tonfrequenz wird aus Note und Oktave ermittelt. <br>
-<img width="900" alt="image" src="https://github.com/user-attachments/assets/7c5a298c-44cc-4f3f-ba6f-91e56b5e582a" /><br>
+**Beispiel 1**: iNote = Tone.NOTE_A (9), iOktave = 4  --> Kammerton A1 = 440 Hz<br>
+<img width="527" height="317" alt="image" src="https://github.com/user-attachments/assets/a1629624-83a4-45f6-a1fe-52f7ff11ffb6" /><br>
 iOktave: INT (0...9)<br>
-iNote: INT (NOTE_C=0,...NOTE_B=11)<br>
+iNote: INT (Tone.NOTE_C=0,..., Tone.NOTE_B=11)<br>
 xNoteOn: BOOL (0: Ton aus, 1: Ton ein)<br>
-**Beispiel**: iNote = NOTE_A (9), iOktave = 4  --> Kammerton A1 = 440 Hz
+**Beispiel 2**: Kleine Klaviatur
+<img width="800" alt="image" src="https://github.com/user-attachments/assets/8580ce78-e9dc-4a35-bdf9-af78c0360f1c" /><br>

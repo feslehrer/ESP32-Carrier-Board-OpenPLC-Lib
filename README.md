@@ -32,8 +32,7 @@ OpenPLC bietet eine Reihe von String-Funktionen zur Bearbeitung des Anzeige-Text
 <img width="700" alt="image" src="https://github.com/user-attachments/assets/d0af580a-bbe5-4a24-9220-543720401946" /><br>
 TextZeile1: STRING<br>
 TextZeile2: STRING<br>
-<img width="450" alt="image" src="https://github.com/user-attachments/assets/8e41c839-4e32-4445-be11-3808dfd9755e" />
-<br>
+<img width="450" alt="image" src="https://github.com/user-attachments/assets/8e41c839-4e32-4445-be11-3808dfd9755e" /><br>
 ### 3. ESP_LM75
 Dieser FB gibt die Temperatur des auf dem Carrier-Board verbauten Temperatursensors LM75 zurück. Der Messbereich des LM75 ist -55°C...+125°C mit einer Auflösung von 0,5°C.<br> 
 Der Ausgang **STEMPERATURE** gibt einen Formatierten String mit einer Nachkommastelle aus.<br>
@@ -46,7 +45,7 @@ Diese FB gibt eine 12-Bit PWM am angegebenen Pin des ESP32 (PINNR). Es ist darau
 PinNr: UINT (2=Backlight, 27=Speaker)<br>
 iDutycycle: UINT (0...65535)<br>
 ### 5. ESP32_TASTER_SCHALTER
-Mit diesem FB können die 4 nullaktiven Taster auf dem Carrier-Board als Schließer (NO) oder Öffner (NC) konfiguriert werden. Ebenso kann damit eine Schalterfunktion realisiert werden. 
+Mit diesem FB können die 4 nullaktiven Taster auf dem Carrier-Board als Schließer (NO) oder Öffner (NC) konfiguriert werden. Ebenso kann damit eine Schalterfunktion realisiert werden.<br>
 <img width="400" alt="image" src="https://github.com/user-attachments/assets/00ad17c9-65ac-4870-aeab-cc3ee62e5553" /><br>
 IN1: BOOL (S1, S2, S3, S4)<br>
 PB_SW: BOOL (0:Taster (Pushbutton=default), 1:Schalter (Switch))<br>
@@ -54,9 +53,9 @@ NO_NC: BOOL (0:Schließer (NO=default), 2:Öffner (NC)) <br>
 ### 6. ESP32_TONE
 Mit diesem FB wird ein Ton auf dem Lautsprecher (Speaker = Pin 27) des Carrier-Boards ausgegeben. Die Tonfrequenz wird aus Note und Oktave ermittelt. <br>
 **Beispiel 1**: iNote = Tone.NOTE_A (9), iOktave = 4  --> Kammerton A1 = 440 Hz<br>
-<img width="527" height="317" alt="image" src="https://github.com/user-attachments/assets/a1629624-83a4-45f6-a1fe-52f7ff11ffb6" /><br>
+<img width="350" alt="image" src="https://github.com/user-attachments/assets/19560beb-08b0-49b5-ad8c-ee87beee076f" /><br>
 iOktave: INT (0...9)<br>
 iNote: INT (Tone.NOTE_C=0,..., Tone.NOTE_B=11)<br>
 xNoteOn: BOOL (0: Ton aus, 1: Ton ein)<br>
-**Beispiel 2**: Kleine Klaviatur
+**Beispiel 2**: Kleine Klaviatur<br>
 <img width="800" alt="image" src="https://github.com/user-attachments/assets/8580ce78-e9dc-4a35-bdf9-af78c0360f1c" /><br>
